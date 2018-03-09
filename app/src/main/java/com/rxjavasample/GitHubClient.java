@@ -9,6 +9,8 @@ import com.rxjavasample.model.GitHubRepo;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -42,7 +44,7 @@ public class GitHubClient {
         return instance;
     }
 
-    public Observable<List<GitHubRepo>> getStarredRepos(@NonNull String userName) {
+    public Observable<Response<ResponseBody>> getStarredRepos(@NonNull String userName) {
         return gitHubService.getStarredRepositories(userName);
     }
 }
